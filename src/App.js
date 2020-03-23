@@ -154,23 +154,23 @@ function StatIncr ({ modifyTime}) {
       <h2 id="Incr">
         实时数据
         <span className="due">
-          (全国)截止时间: {dayjs(modifyTime).format('YYYY-MM-DD HH:mm')}
+          (世界)截止时间: {dayjs(modifyTime).format('YYYY-MM-DD HH:mm')}
         </span>
       </h2>
       <div className="row">
-        <TotalTag number={all.currentConfirmedIncr} total={all.currentConfirmedCount} className="numberconfirmed">
-          现存确诊
+        <TotalTag number={all.globalStatistics.currentConfirmedIncr} total={all.globalStatistics.confirmedCount} className="numberconfirmed">
+          确诊
         </TotalTag>
-        <TotalTag number={all.suspectedIncr || '-'}  total={all.suspectedCount} className="number">
+        {/* <TotalTag number={all.suspectedIncr || '-'}  total={all.suspectedCount} className="number">
           疑似
-        </TotalTag>
-        <TotalTag number={all.seriousIncr} total={all.seriousCount} className="icu">
+        </TotalTag> */}
+        {/* <TotalTag number={all.seriousIncr} total={all.seriousCount} className="icu">
           重症
-        </TotalTag>
-        <TotalTag number={all.deadIncr} total={all.deadCount} className="dead">
+        </TotalTag> */}
+        <TotalTag number={all.globalStatistics.deadIncr} total={all.globalStatistics.deadCount} className="dead">
           死亡
         </TotalTag>
-        <TotalTag number={all.curedIncr} total={all.curedCount} className="numbercured">
+        <TotalTag number={all.globalStatistics.curedIncr} total={all.globalStatistics.curedCount} className="numbercured">
           治愈
         </TotalTag>
       </div>
@@ -341,7 +341,7 @@ function App () {
 
         {/* 地图 */}
       <div className="card" id="MapTab">
-       <Tabs tabs={tabs} initialPage={0} animated={false} useOnPan={false}>
+       <Tabs tabs={tabs} initialPage={1} animated={false} useOnPan={false}>
         <div id="Map">
          <h2>疫情地图 { province ? `· ${province.name}` : "(点击省市查看详情)" }
          {
