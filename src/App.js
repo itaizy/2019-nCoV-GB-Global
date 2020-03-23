@@ -79,7 +79,7 @@ function News ({ province }) {
       <h2 id="News">实时动态</h2>
       {
         news
-          .filter(n => province ? province.provinceShortName === (n.provinceName && n.provinceName.slice(0, 2)) : true)
+          // .filter(n => province ? province.provinceShortName === (n.provinceName && n.provinceName.slice(0, 2)) : true)
           .slice(0, len)
           .map(n => <New {...n} key={n.id} />)
       }
@@ -429,9 +429,9 @@ function App () {
       </div>
 
       {/* 趋势 */}
-        <div className="card" id='Trends'>
+        {/* <div className="card" id='Trends'>
         <h2>全国</h2>
-        <div>
+        <div> */}
             {/* {all.quanguoTrendChart.map(n => (              
               <div key={n.title}>
                 <img src={require('./images/' + n.imgUrl.split('/')[n.imgUrl.split('/').length - 1])}
@@ -443,7 +443,7 @@ function App () {
                          window.dispatchEvent(new Event('resize'));
                      }}/>
               </div>))} */}
-        <Suspense fallback={<div className="loading">正在加载中...</div>}>
+        {/* <Suspense fallback={<div className="loading">正在加载中...</div>}>
           <PredictMultiple data={{
               // "title": "确诊",
               "xAxis": ed.xAxis, 
@@ -566,8 +566,8 @@ function App () {
               ]
               }}/>
           </Suspense>
-          </div>
-          </div>
+          </div> */}
+          {/* </div> */}
             {/* {all.hbFeiHbTrendChart.map(n => (
               <div key={n.title}>
                 <img src={require('./images/' + n.imgUrl.split('/')[n.imgUrl.split('/').length - 1])}
@@ -599,7 +599,7 @@ function App () {
       {/* <iframe src={"http://39.107.70.155/"} width="100%" height="500px" frameBorder="0"></iframe> */}
       
       {/* 预测 */}
-      <div className="card" id="Predict">
+      {/* <div className="card" id="Predict">
         <h2> 疫情预测（确诊趋势）· 近期</h2>
         <div height="250px">
         <Suspense fallback={<div className="loading">正在加载中...</div>}>
@@ -634,7 +634,7 @@ function App () {
                          window.dispatchEvent(new Event('resize'));
                      }}/>
                      </div>
-      </div>
+      </div> */}
       
       {/* 动态 */}
       <News province={province} />
