@@ -312,7 +312,7 @@ function App () {
   const citylist = ['武汉市','黄石市','十堰市','宜昌市','襄阳市','鄂州市','荆门市','孝感市','荆州市','黄冈市','咸宁市','随州市','恩施土家族苗族自治州仙桃市','潜江市','天门市','神农架林区']
 
   const tabs = [
-    { title: '全国疫情地图' },
+    // { title: '全国疫情地图' },
     { title: '世界疫情地图' },
   ];
 
@@ -341,27 +341,28 @@ function App () {
 
         {/* 地图 */}
       <div className="card" id="MapTab">
-       <Tabs tabs={tabs} initialPage={1} animated={false} useOnPan={false}>
-        <div id="Map">
-         <h2>疫情地图 { province ? `· ${province.name}` : "(点击省市查看详情)" }
+      
+       {/* <Tabs tabs={tabs} initialPage={1} animated={false} useOnPan={false}> */}
+        {/* <div id="Map"> */}
+         {/* <h2>疫情地图 { province ? `· ${province.name}` : "(点击省市查看详情)" }
          {
            province ? <small
              onClick={() => setProvince(null)}
            >返回全国</small> : null
          }
-         </h2>
+         </h2> */}
          {/* <h3>点击省市查看详情</h3> */}
-         <Stat { ...overall } name={province && province.name} modifyTime={all.modifyTime} />
+         {/* <Stat { ...overall } name={province && province.name} modifyTime={all.modifyTime} /> */}
          {/* <Suspense fallback={<div className="loading">地图正在加载中...</div>}> */}
-           <Map province={province} data={data} onClick={name => {
+           {/* <Map province={province} data={data} onClick={name => {
              const p = provincesByName[name]
              if (p) {
                setProvince(p)
              }
-           }} />
+           }} /> */}
          {/* </Suspense> */}
-         <Area area={area} onChange={setProvince} />
-        </div>
+         {/* <Area area={area} onChange={setProvince} /> */}
+        {/* </div> */}
         <div id="WorldMap">
            <h2>世界疫情地图 { country ? `· ${country.name}` : "" }
               {
@@ -425,7 +426,7 @@ function App () {
            
            <WorldArea area={Worldarea} onChange={null} />
         </div>
-       </Tabs>
+       {/* </Tabs> */}
       </div>
 
       {/* 趋势 */}
@@ -635,6 +636,21 @@ function App () {
                      }}/>
                      </div>
       </div> */}
+      <h2> 疫情预测（确诊趋势）</h2>
+        <div>
+          <img src={require('./images/world.png')} alt="" style={{ width: '100%'}}
+                     onLoad={() => {
+                         window.dispatchEvent(new Event('resize'));
+                     }}/>
+                     </div>
+        <div>
+          <img src={require('./images/important.png')} alt="" style={{ width: '100%'}}
+                     onLoad={() => {
+                         window.dispatchEvent(new Event('resize'));
+                     }}/>
+                     </div>
+        <div>
+      </div> 
       
       {/* 动态 */}
       <News province={province} />
