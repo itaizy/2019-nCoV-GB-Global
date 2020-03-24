@@ -29,6 +29,7 @@ import 'antd-mobile/lib/picker-view/style/css'
 import 'antd-mobile/lib/carousel/style/css'
 import 'antd-mobile/lib/flex/style/css'
 import 'antd-mobile/lib/radio/style/css'
+import { height } from '@material-ui/system'
 
 
 dayjs.extend(relativeTime)
@@ -154,11 +155,11 @@ function StatIncr ({ modifyTime}) {
       <h2 id="Incr">
         实时数据
         <span className="due">
-          (世界)截止时间: {dayjs(modifyTime).format('YYYY-MM-DD HH:mm')}
+          (国外)截止时间: {dayjs(modifyTime).format('YYYY-MM-DD HH:mm')}
         </span>
       </h2>
       <div className="row">
-        <TotalTag number={all.globalStatistics.currentConfirmedIncr} total={all.globalStatistics.confirmedCount} className="numberconfirmed">
+        <TotalTag number={all.foreignStatistics.confirmedIncr} total={all.foreignStatistics.confirmedCount} className="numberconfirmed">
           确诊
         </TotalTag>
         {/* <TotalTag number={all.suspectedIncr || '-'}  total={all.suspectedCount} className="number">
@@ -167,10 +168,10 @@ function StatIncr ({ modifyTime}) {
         {/* <TotalTag number={all.seriousIncr} total={all.seriousCount} className="icu">
           重症
         </TotalTag> */}
-        <TotalTag number={all.globalStatistics.deadIncr} total={all.globalStatistics.deadCount} className="dead">
+        <TotalTag number={all.foreignStatistics.deadIncr} total={all.foreignStatistics.deadCount} className="dead">
           死亡
         </TotalTag>
-        <TotalTag number={all.globalStatistics.curedIncr} total={all.globalStatistics.curedCount} className="numbercured">
+        <TotalTag number={all.foreignStatistics.curedIncr} total={all.foreignStatistics.curedCount} className="numbercured">
           治愈
         </TotalTag>
       </div>
@@ -384,6 +385,7 @@ function App () {
                 //cascade={false}
             /> */}
             <Suspense fallback={<div className="loading">正在加载中...</div>}>
+              <div id='Trends'></div>
 
                   <PredictMultiple data={{
                     "xAxis": countryDataByName[countryState].date, 
@@ -636,21 +638,23 @@ function App () {
                      }}/>
                      </div>
       </div> */}
+      <div className="card" id="Predict">
       <h2> 疫情预测（确诊趋势）</h2>
         <div>
-          <img src={require('./images/world.png')} alt="" style={{ width: '100%'}}
+          <img src={require('./images/world.png')} alt="" style={{ width: '100%', height: '350px'}}
                      onLoad={() => {
                          window.dispatchEvent(new Event('resize'));
                      }}/>
                      </div>
-        <div>
+        {/* <div>
           <img src={require('./images/important.png')} alt="" style={{ width: '100%'}}
                      onLoad={() => {
                          window.dispatchEvent(new Event('resize'));
                      }}/>
-                     </div>
+                     </div> */}
         <div>
       </div> 
+      </div>
       
       {/* 动态 */}
       <News province={province} />
