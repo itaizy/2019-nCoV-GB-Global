@@ -82,10 +82,10 @@ f.close()
 val = os.system('python3 ImgCrawler.py')
 print('GB Done.' + str(val))
 
-val = os.system('cp -r images/ ../build/gb')
-val = os.system('cp data/qg4gb.json ../build/gb')
-val = os.system('cp data/hb4gb.json ../build/gb')
-val = os.system('cp data/img4gb.json ../build/gb')
+val = os.system('cp -r images/ ../build/gbg')
+val = os.system('cp data/qg4gb.json ../build/gbg')
+val = os.system('cp data/hb4gb.json ../build/gbg')
+val = os.system('cp data/img4gb.json ../build/gbg')
 
 
 
