@@ -337,7 +337,7 @@ function App () {
     <div>
       <Header province={province} />
       {/* 实时数据 */}
-      {/* <StatIncr modifyTime={all.modifyTime}/>  */}
+      <StatIncr modifyTime={all.modifyTime}/> 
 
         {/* 地图 */}
       <div className="card" id="MapTab">
@@ -371,7 +371,7 @@ function App () {
                 >返回世界地图</small> : null
               }
            </h2>
-           <WorldStat { ...all.foreignStatistics } name={'世界'} modifyTime={all.modifyTime} />
+           {/* <WorldStat { ...all.foreignStatistics } name={'世界'} modifyTime={all.modifyTime} /> */}
            <WorldMap province={country} data={Worlddata} onClick= {(name) => {}}/>
            {/* <PickerView
                 data={ed2.map((x) => ({label:x.provinceName,value:x.provinceName}) )}
