@@ -337,7 +337,7 @@ function App () {
     <div>
       <Header province={province} />
       {/* 实时数据 */}
-      <StatIncr modifyTime={all.modifyTime}/> 
+      {/* <StatIncr modifyTime={all.modifyTime}/>  */}
 
         {/* 地图 */}
       <div className="card" id="MapTab">
