@@ -14,6 +14,7 @@ import ed from './data/echartsdata'
 import ed2 from './data/echartsdata2'
 
 import Tag from './Tag'
+import Axios from 'axios'
 
 import Map from './Map'
 import WorldMap from './WorldMap'
@@ -47,6 +48,14 @@ const fetcher = (url) => axios(url).then(data => {
 })
 const countryDataByName = keyBy(ed2,(x)=>(x.provinceName))
 const countryMax = 34
+
+// const [globals, setGlobals] = useState([])
+// useEffect(() => {
+//   Axios.post('', payload)
+//   .then(news => {
+//     setNews(news)
+//   })
+// }, [])
 
 function New ({ title, summary, sourceUrl, pubDate, pubDateStr }) {
   return (
@@ -638,23 +647,23 @@ function App () {
                      }}/>
                      </div>
       </div> */}
-      <div className="card" id="Predict">
-      <h2> 疫情预测（确诊趋势）</h2>
-        <div>
+      {/* <div className="card" id="Predict">
+      <h2> 疫情趋势</h2> */}
+        {/* <div>
           <img src={require('./images/world.png')} alt="" style={{ width: '100%', height: '350px'}}
                      onLoad={() => {
                          window.dispatchEvent(new Event('resize'));
                      }}/>
-                     </div>
+                     </div> */}
         {/* <div>
           <img src={require('./images/important.png')} alt="" style={{ width: '100%'}}
                      onLoad={() => {
                          window.dispatchEvent(new Event('resize'));
                      }}/>
                      </div> */}
-        <div>
-      </div> 
-      </div>
+        {/* <div>
+      </div>  */}
+      {/* </div> */}
       
       {/* 动态 */}
       <News province={province} />
